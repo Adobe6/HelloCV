@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>teamx_challenge</name>
+  <version>0.0.1</version>
+  <description>G.E.M 战队 Vision Challenge Package</description>
+
+  <maintainer email="you@example.com">YourName</maintainer>
+  <license>Apache 2.0</license>
+
+  <!-- ROS2 基础依赖 -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+
+  <!-- OpenCV -->
+  <exec_depend>opencv</exec_depend>
+
+  <!-- 裁判系统依赖 -->
+  <depend>referee_pkg</depend>
+
+  <!-- 用于 launch -->
+  <exec_depend>ament_index_cpp</exec_depend>
+
+  <!-- 用于参数文件 -->
+  <exec_depend>yaml_cpp_vendor</exec_depend>
+
+  <!-- 导航 / shooter（如果 Level3 用 TF） -->
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

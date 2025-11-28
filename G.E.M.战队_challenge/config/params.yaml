@@ -1,0 +1,38 @@
+teamx_level2_cpp:
+  ros__parameters:
+    camera_topic: "/camera/image_raw"
+    target_type_red: "armor_red"
+    target_type_blue: "armor_blue"
+    min_area: 200.0
+    aspect_min: 0.5
+    aspect_max: 3.0
+    persistence_frames: 3
+    max_lost_frames: 10
+    # HSV ranges (0-180 for H)
+    red1_hsv_low:  [0,  90,  90]
+    red1_hsv_high: [10, 255, 255]
+    red2_hsv_low:  [160, 90,  90]
+    red2_hsv_high: [180, 255, 255]
+    blue_hsv_low:  [90,  80,  80]
+    blue_hsv_high: [130, 255, 255]
+    # scoring weights
+    w_area: 1.0
+    w_center: 0.5
+    w_color: 1.0
+
+
+shooter_node:
+  ros__parameters:
+    vision_topic: "/vision/target"
+    gimbal_cmd_topic: "/gimbal/cmd"
+
+    camera_fx: 800.0
+    camera_fy: 800.0
+    camera_cx: 320.0
+    camera_cy: 320.0
+
+    armor_width: 0.135     # 根据官方模型调整
+    armor_height: 0.055
+
+    max_yaw_error_deg: 1.0
+    max_pitch_error_deg: 1.0
