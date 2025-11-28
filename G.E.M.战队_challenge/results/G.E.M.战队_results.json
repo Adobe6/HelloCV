@@ -1,0 +1,13 @@
+{
+    "RaceStage1": {
+        "average_orientationerror": 3.14,
+        "average_positionerror": 999.0,
+        "average_ringcentererror": 999.0,
+        "fps": 0,
+        "run_id": "344f9058-8b90-42ef-8f36-ea55fb2bbae3",
+        "score": 0.0,
+        "target_type": "Ring_red",
+        "timestamp": "2025-11-28T21:35:38Z"
+    },
+    "team_name": "G.E.M.战队"
+}
