@@ -1,0 +1,960 @@
+<sdf version='1.7'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <audio>
+      <device>default</device>
+    </audio>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='sphere_sin'>
+      <link name='base_link'>
+        <visual name='visual'>
+          <geometry>
+            <sphere>
+              <radius>0.5</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>0.8 0 0 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+            <emissive>0.2 0 0 1</emissive>
+          </material>
+          <gravity>0</gravity>
+        </visual>
+        <collision name='collision'>
+          <geometry>
+            <sphere>
+              <radius>0.2</radius>
+            </sphere>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <plugin name='run_sin' filename='install/sin/lib/libsin.so'>
+      <stage>4</stage>
+        <radius>3</radius>
+        <v>1</v>
+        <center_x>0</center_x>
+        <center_y>9</center_y>
+        <center_z>4</center_z>
+      </plugin>
+      <pose>1.32603 2.09914 0 0 -0 0</pose>
+    </model>
+   
+    <state world_name='default'>
+      <sim_time>133 163000000</sim_time>
+      <real_time>75 484587459</real_time>
+      <wall_time>1757940301 227352194</wall_time>
+      <iterations>75316</iterations>
+      <model name='armor_red_1'>
+        <pose>0 9 -0.093258 0 0 -1.57089</pose>
+        <scale>1 1 1</scale>
+        <link name='base_link'>
+          <pose>0 9 -0.093258 0 0 -1.57089</pose>
+          <velocity>0 0 -1096.92 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -0.98 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='armor_red_2'>
+        <pose>3 13 8.57232 0 0 -1.57089</pose>
+        <scale>1 1 1</scale>
+        <link name='base_link'>
+          <pose>3 13 8.57232 0 0 -1.57089</pose>
+          <velocity>0 0 -451.574 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -0.98 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='armor_red_3'>
+        <pose>-2 4 8.22055 0 0 -1.57089</pose>
+        <scale>1 1 1</scale>
+        <link name='base_link'>
+          <pose>-2 4 8.22055 0 0 -1.57089</pose>
+          <velocity>0 0 -429.965 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -0.98 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='armor_red_4'>
+        <pose>-5.65626 15 1.67019 0 0 -1.57089</pose>
+        <scale>1 1 1</scale>
+        <link name='base_link'>
+          <pose>-5.65626 15 1.67019 0 0 -1.57089</pose>
+          <velocity>0 0 -402.466 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -0.98 0 -0 0</wrench>
+        </link>
+      </model>
+     
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='sphere_sin'>
+        <pose>0 9 2.82088 0 0 -1.57089</pose>
+        <scale>1 1 1</scale>
+        <link name='base_link'>
+          <pose>0 9 2.82088 0 0 -1.57089</pose>
+          <velocity>0 0 -1096.91 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>21.5432 -12.0108 7.89178 0 0.275643 2.35619</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <model name='armor_red_1'>
+    <static>true</static>
+      <link name='base_link'>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.000306508</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000142177</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167019</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/meshes/small_armor.dae</uri>
+              <scale>7.5 5 4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+            <specular>0.6 0.6 0.6 1</specular>
+          </material>
+        </visual>
+        <visual name='target_visual'>
+          <geometry>
+            <mesh>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/meshes/small_armor_target.dae</uri>
+              <scale>7.5 5 4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+            <specular>0.6 0.6 0.6 1</specular>
+          </material>
+        </visual>
+        <visual name='light_bar_visual'>
+          <geometry>
+            <mesh>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/meshes/small_armor_light_bar.dae</uri>
+              <scale>7.5 5 4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <emissive>1 0 0 1</emissive>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+        <visual name='sticker_visual'>
+          <pose>0.12 0 0.25 1.5708 -0 1.5708</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>0.65 0.48</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/textures/</uri>
+              <name>small_num1</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+           <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='target_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <plugin name='stop1' filename='install/stop/lib/libstop.so'>
+      <stage>3</stage>
+       <stage2>4</stage2>
+        <center_x>0</center_x>
+        <center_y>8</center_y>
+        <center_z>2</center_z>
+      </plugin>
+      <pose>0.962055 1.43744 0 0 -0 0</pose>
+    </model>
+    <model name='armor_red_2'>
+      <link name='base_link'>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.000306508</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000142177</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167019</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/meshes/small_armor.dae</uri>
+              <scale>7.5 5 4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+            <specular>0.6 0.6 0.6 1</specular>
+          </material>
+        </visual>
+        <visual name='target_visual'>
+          <geometry>
+            <mesh>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/meshes/small_armor_target.dae</uri>
+              <scale>7.5 5 4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+            <specular>0.6 0.6 0.6 1</specular>
+          </material>
+        </visual>
+        <visual name='light_bar_visual'>
+          <geometry>
+            <mesh>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/meshes/small_armor_light_bar.dae</uri>
+              <scale>7.5 5 4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <emissive>1 0 0 1</emissive>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+        <visual name='sticker_visual'>
+          <pose>0.12 0 0.25 1.5708 -0 1.5708</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>0.65 0.48</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/textures/</uri>
+              <name>small_num2</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+             <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='target_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+           <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <plugin name='run_sin' filename='install/sin/lib/libsin.so'>
+      
+       <stage>4</stage>
+        <radius>1.5</radius>
+        <v>2</v>
+        <center_x>3</center_x>
+        <center_y>6</center_y>
+        <center_z>3</center_z>
+      </plugin>
+      <pose>5.77863 5.25284 0 0 -0 0</pose>
+    </model>
+    <model name='armor_red_3'>
+      <link name='base_link'>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.000306508</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000142177</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167019</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/meshes/small_armor.dae</uri>
+              <scale>7.5 5 4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+            <specular>0.6 0.6 0.6 1</specular>
+          </material>
+        </visual>
+        <visual name='target_visual'>
+          <geometry>
+            <mesh>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/meshes/small_armor_target.dae</uri>
+              <scale>7.5 5 4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+            <specular>0.6 0.6 0.6 1</specular>
+          </material>
+        </visual>
+        <visual name='light_bar_visual'>
+          <geometry>
+            <mesh>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/meshes/small_armor_light_bar.dae</uri>
+              <scale>7.5 5 4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <emissive>1 0 0 1</emissive>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+        <visual name='sticker_visual'>
+          <pose>0.12 0 0.25 1.5708 -0 1.5708</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>0.65 0.48</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/textures/</uri>
+              <name>small_num3</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='target_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+             <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <plugin name='run_sin' filename='install/sin/lib/libsin.so'>
+
+       <stage>4</stage>
+        <radius>1.5</radius>
+        <v>1</v>
+        <center_x>-1.5</center_x>
+        <center_y>4</center_y>
+        <center_z>3</center_z>
+      </plugin>
+      <pose>4.43262 6.35719 0 0 -0 0</pose>
+    </model>
+    <model name='armor_red_4'>
+     <pose>4.46282 6.25681 0 0 -0 1.57</pose>
+      <link name='base_link'>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.000306508</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000142177</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167019</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/meshes/small_armor.dae</uri>
+              <scale>7.5 5 4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+            <specular>0.6 0.6 0.6 1</specular>
+          </material>
+        </visual>
+        <visual name='target_visual'>
+          <geometry>
+            <mesh>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/meshes/small_armor_target.dae</uri>
+              <scale>7.5 5 4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+            <specular>0.6 0.6 0.6 1</specular>
+          </material>
+        </visual>
+        <visual name='light_bar_visual'>
+          <geometry>
+            <mesh>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/meshes/small_armor_light_bar.dae</uri>
+              <scale>7.5 5 4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <emissive>1 0 0 1</emissive>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+        <visual name='sticker_visual'>
+          <pose>0.12 0 0.25 1.5708 -0 1.5708</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>0.65 0.48</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/textures/</uri>
+              <name>small_num4</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='target_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <plugin name='run_stop' filename='install/stop/lib/libstop.so'>
+      <stage>3</stage>
+       <stage2>4</stage2>
+        <center_x>-2.0</center_x>
+        <center_y>8.0</center_y>
+        <center_z>3.0</center_z>
+      </plugin>
+      <static>true</static>
+    </model>
+    
+    <model name="Ring_red">
+     <static>true</static>
+        <link name="base_link">
+            <inertial>
+                <pose>0 0 0 0 0 0</pose>
+                <mass>0.1</mass>
+                <inertia>
+					<ixx>0.0003065083333333333</ixx>
+					<ixy>0</ixy>
+					<ixz>0</ixz>
+					<iyy>0.0001421774166666667</iyy>
+					<iyz>0</iyz>
+					<izz>0.0001670190833333333</izz>
+				</inertia>
+            </inertial>
+            <visual name="circle">
+                <geometry>
+
+                    <mesh>
+                        <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/circle/meshes/circle.dae</uri>
+                        <scale>0.5 0.5 0.05</scale>
+                    </mesh>
+                </geometry>
+<material>
+    <ambient>1.0 0.0 0.0 1.0</ambient>    <!-- 红色环境光 -->
+    <diffuse>0.8 0.0 0.0 1.0</diffuse>    <!-- 红色漫反射 -->
+    <specular>0.5 0.5 0.5 1.0</specular>  <!-- 保持镜面反射 -->
+    <emissive>0.7 0.0 0.0 1.0</emissive>  <!-- 红色自发光 -->
+</material>
+            </visual>
+            <collision name ="circle">
+                <geometry>
+                    <cylinder>
+                <radius>0.5</radius>
+                <length>0.05</length>
+                    </cylinder>
+                    </geometry>
+            </collision>
+        </link>
+          <plugin name='run_stop' filename='install/stop/lib/libstop.so'>
+          <stage>1</stage>
+          
+        <center_x>-10.0</center_x>
+        <center_y>19.0</center_y>
+        <center_z>3.0</center_z>
+        <yaw>1.57</yaw>
+        <r>1.57</r>
+        <p>3.14</p>
+      </plugin>
+    </model>
+  <model name="arrow">
+        <static>false</static>
+        <gravity>false</gravity>
+        <pose>0 0 0 0 0 4.71</pose>
+        <link name="base_link">
+            <gravity>false</gravity>
+            <inertial>
+                <pose>0 0 0 0 0 0</pose>
+                <mass>0.1</mass>
+                <inertia>
+                    <ixx>0.0003065083333333333</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.0001421774166666667</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.0001670190833333333</izz>
+                </inertia>
+            </inertial>
+            <visual name="arrow">
+                <geometry>
+                    <mesh>
+                        <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/arrow/meshes/arrow.dae</uri>
+                        <scale>0.25 0.25 0.25</scale>
+                    </mesh>
+                </geometry>
+<material>
+    <ambient>1.0 0.0 0.0 1.0</ambient>    <!-- 红色环境光 -->
+    <diffuse>0.8 0.0 0.0 1.0</diffuse>    <!-- 红色漫反射 -->
+    <specular>0.5 0.5 0.5 1.0</specular>  <!-- 保持镜面反射 -->
+    <emissive>0.7 0.0 0.0 1.0</emissive>  <!-- 红色自发光 -->
+</material>
+            </visual>
+        </link>
+        <plugin name ="control_plugin" filename="install/arrow_run/lib/libarrow_run.so">
+   <stage>2</stage>
+  
+        <center_x>3.0</center_x>
+        <center_y>15.0</center_y>
+        <center_z>5.0</center_z>
+        <yaw>0</yaw>
+        <r>0</r>
+        <p>0</p>
+           
+        </plugin>
+    </model>
+
+    <model name='armor_hit'>
+      <link name='base_link'>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.000306508</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000142177</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167019</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/meshes/small_armor.dae</uri>
+              <scale>7.5 5 4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+            <specular>0.6 0.6 0.6 1</specular>
+          </material>
+        </visual>
+        <visual name='target_visual'>
+          <geometry>
+            <mesh>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/meshes/small_armor_target.dae</uri>
+              <scale>7.5 5 4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.05 0.05 0.05 1</diffuse>
+            <specular>0.6 0.6 0.6 1</specular>
+          </material>
+        </visual>
+        <visual name='light_bar_visual'>
+          <geometry>
+            <mesh>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/meshes/small_armor_light_bar.dae</uri>
+              <scale>7.5 5 4</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <emissive>1 0 0 1</emissive>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+        <visual name='sticker_visual'>
+          <pose>0.12 0 0.25 1.5708 -0 1.5708</pose>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>0.65 0.48</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://install/target_model_pkg/share/target_model_pkg/urdf/armor/textures/</uri>
+              <name>small_num3</name>
+            </script>
+          </material>
+        </visual>
+        <collision name='collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='target_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+             <size>0.1 0.1 0.1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <plugin name='run_sin' filename='install/rm_run/lib/librm_run.so'>
+      <stage>5</stage>
+        <radius>1</radius>
+        <v>4</v>
+        <center_x>0</center_x>
+        <center_y>10.5</center_y>
+        <center_z>2</center_z>
+      </plugin>
+      <pose>4.43262 6.35719 0 0 -0 0</pose>
+    </model>
+  </world>
+</sdf>

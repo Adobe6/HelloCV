@@ -1,0 +1,17 @@
+<launch>
+  <!-- 启动STAGE_1视觉节点 -->
+  <node pkg="team16_pkg" exec="vision_node_stage1" name="vision_node_stage1">
+    <param from="$(find team16_pkg)/config/stage1_params.yaml"/>
+  </node>
+
+  <!-- 启动裁判系统（选手需自行替换队伍名称） -->
+  <node pkg="referee_pkg" exec="referee_node" name="referee_node">
+    <param name="TEAM16" value="TEAM16"/>
+    <param name="StageSelect" value="1"/>  <!-- 固定启动STAGE_1 -->
+    <param name="ModeSelect" value="0"/>   <!-- 恒定模式 -->
+  </node>
+
+  <!-- 启动相机仿真（比赛时无需手动启动，此处用于调试） -->
+  <include file="$(find camera_sim_pkg)/launch/camera.launch.py"/>
+</launch>
+

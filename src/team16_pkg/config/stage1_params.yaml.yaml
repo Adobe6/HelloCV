@@ -1,0 +1,16 @@
+vision_node_stage1:
+  ros__parameters:
+    # 红色HSV阈值（可根据实际环境微调）
+    red_h1_low: 0
+    red_h1_high: 10
+    red_h2_low: 160
+    red_h2_high: 180
+    s_low: 90
+    s_high: 255
+    v_low: 90
+    v_high: 255
+    # 圆环参数（适配裁判系统圆环尺寸）
+    ring_min_r: 30.0
+    ring_max_r: 150.0
+    circle_center_dist_thresh: 20.0  # 内外圆中心最大偏差（像素）
+
